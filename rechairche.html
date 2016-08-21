@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>MesPropresRecherches.com</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/google.css">
+    <link href='https://fonts.googleapis.com/css?family=Product+Sans' rel='stylesheet' type='text/css'>
+    <meta property='og:image' content='http://www.mespropresrecherches.com/assets/images/logo3.png'/>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-286968-8', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <div class="loader" id="loader">
+    </div>
+    <header role="header">
+      <nav role="nav">
+        <a href="#">+You</a>
+        <a href="#">Mail</a>
+        <a href="#">Images</a>
+        <a href="#" class="apps"></a>
+        <a href="#" class="sign-in">Sign in</a>
+      </nav>
+    </header>
+    <main role="main">
+      <h1 class="blink_me">LA TAIRE ET PLATTE !!!</h1>
+      <img src="assets/images/giphy.gif" />
+      <h4>Si vous ete un trol du GVT merssi de pa resté la ! la tere é platte !</h4>
+      <div class="languages">
+        Mespropresrecherches.com offert par:
+        <a href="#">Zlub</a>
+      </div>
+    </main>
+    <footer role="footer">
+      <div class="left">
+        <a href="#">Advertising</a>
+        <a href="#">Business</a>
+        <a href="#">About</a>
+      </div>
+      <div class="right">
+        <a href="#">Privacy &amp; Terms</a>
+        <a href="#">Settings</a>
+        <a href="#">FAK</a>
+      </div>
+    </footer>
+    <script>
+    var s = document.createElement('style');
+document.head.appendChild(s);
+
+var cx = window.innerWidth / 2;
+var cy = window.innerHeight / 2;
+var rad = Math.PI / 180;
+
+var R = 150,
+  r = R / 16,
+  kx = 5,
+  ky = 6,
+  phi = Math.PI / 2,
+  x, y, t;
+
+function pointOnLemniscate() {
+  x = (R * Math.cos(t) / (1 + (Math.sin(t) * Math.sin(t)))).toFixed(5),
+    y = (R * Math.sin(t) * Math.cos(t) / (1 + (Math.sin(t) * Math.sin(t)))).toFixed(5);
+  return o = {
+    x: x,
+    y: y
+  }
+}
+
+function pointOnLissajous() {
+  x = (R * Math.sin(kx * t + phi)).toFixed(5);
+  y = (R * Math.sin(ky * t)).toFixed(5);
+  return o = {
+    x: x,
+    y: y
+  }
+}
+
+function pointOnHeart() {
+  x = (16 * r * (Math.sin(t) * Math.sin(t) * Math.sin(t))).toFixed(5);
+  y = (-13 * r * Math.cos(t) +
+    5 * r * Math.cos(2 * t) +
+    2 * r * Math.cos(3 * t) +
+    r * Math.cos(4 * t)).toFixed(5);
+  return o = {
+    x: x,
+    y: y
+  }
+}
+
+function getShadow(pointOnCurve) {
+  var boxShadowRy = [];
+  for (var a = 0; a < 360; a += .5) {
+    t = a * rad;
+    var o = pointOnCurve();
+    boxShadowRy.push(o.x + "px" + " " + o.y + "px" + " 0px 1px hsl(" + a + ",100%,50%)");
+  }
+  var boxShadowStr = boxShadowRy.join();
+  return boxShadowStr;
+}
+
+s.textContent = '.loader::before{';
+s.textContent += 'left:' + cx + 'px;';
+s.textContent += 'top:' + cy + 'px;';
+s.textContent += 'box-shadow:' + getShadow(pointOnLissajous);
+s.textContent += '}';
+
+var vendors = [ /*'-ms-', '-moz-',*/ '-webkit-', /*'-o-',*/  ''];
+for (var i = 0; i < vendors.length; i++) {
+  s.textContent += '@' + vendors[i] + 'keyframes testAnimacion {';
+  s.textContent += '50% {' + vendors[i] + 'box-shadow:' + getShadow(pointOnLemniscate) + ';background-color:hsl(90,100%,50%);}';
+  s.textContent += '55% {background-color:transparent;}';
+  s.textContent += '100% {' + vendors[i] + 'box-shadow:' + getShadow(pointOnHeart) + ';background-color:transparent;}';
+  s.textContent += '}';
+}
+
+function fadeOutEffect() {
+    var fadeTarget = document.getElementById("loader");
+    var fadeEffect = setInterval(function () {
+        if (!fadeTarget.style.opacity) {
+            fadeTarget.style.opacity = 1;
+        }
+        if (fadeTarget.style.opacity < 0.1) {
+            clearInterval(fadeEffect);
+        } else {
+            fadeTarget.style.opacity -= 0.1;
+        }
+    }, 200);
+}
+
+setTimeout(fadeOutEffect, 2000)
+setTimeout(function(){
+  loader = document.getElementById("loader")
+  loader.parentNode.removeChild(loader)
+}, 4000)
+
+    </script>
+  </body>
+</html>
